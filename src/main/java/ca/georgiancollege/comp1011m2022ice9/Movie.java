@@ -26,8 +26,8 @@ public class Movie
     @SerializedName("Director")
     private String m_director;
 
-    @SerializedName("Writers")
-    private String m_writers;
+    @SerializedName("Writer")
+    private String m_writer;
 
     @SerializedName("Actors")
     private String m_actors;
@@ -104,12 +104,12 @@ public class Movie
         this.m_director = director;
     }
 
-    public String getWriters() {
-        return m_writers;
+    public String getWriter() {
+        return m_writer;
     }
 
-    public void setWriters(String writers) {
-        this.m_writers = writers;
+    public void setWriter(String writer) {
+        this.m_writer = writer;
     }
 
     public String getActors() {
@@ -164,7 +164,7 @@ public class Movie
         this.m_runtime = "";
         this.m_genre = "";
         this.m_director = "";
-        this.m_writers = "";
+        this.m_writer = "";
         this.m_actors = "";
         this.m_plot = "";
         this.m_poster = "";
@@ -172,7 +172,7 @@ public class Movie
         this.m_type = "";
     }
 
-    public Movie(String title, String year, String rated, String released, String runtime, String genre, String director, String writers, String actors, String plot, String poster, String IMDB_ID, String type) {
+    public Movie(String title, String year, String rated, String released, String runtime, String genre, String director, String writer, String actors, String plot, String poster, String IMDB_ID, String type) {
         this.m_title = title;
         this.m_year = year;
         this.m_rated = rated;
@@ -180,7 +180,7 @@ public class Movie
         this.m_runtime = runtime;
         this.m_genre = genre;
         this.m_director = director;
-        this.m_writers = writers;
+        this.m_writer = writer;
         this.m_actors = actors;
         this.m_plot = plot;
         this.m_poster = poster;
@@ -194,8 +194,8 @@ public class Movie
     @Override
     public String toString()
     {
-        return String.format("Title: %s%nYear: %s%nRated: %s%nReleased: %s%nRuntime: %s%nGenre: %s%nDirector: %s%nWriters: %s%nActors: %s%nPlot: %s%nPoster: %s%nIMDB ID: %s%nType: ",
+        return String.format("Title: %s%nYear: %s%nRated: %s%nReleased: %s%nRuntime: %s%nGenre: %s%nDirector: %s%nWriters: %s%nActors: %s%nPlot: %s%nPoster: %s%nIMDB ID: %s%nType: %s%n",
                 getTitle(), getYear(), getRated(), getReleased(), getRuntime(), getGenre(), getDirector(),
-                getWriters(), getActors(), getPlot(), getPoster(), getIMDB_ID(), getType());
+                getWriter(), getActors(), getPlot(), getPoster(), getIMDB_ID(), getType());
     }
 }

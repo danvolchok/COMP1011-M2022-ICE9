@@ -31,7 +31,7 @@ public class APIManager
     {
         // Step 1. Construct URL
         String APIKey = "769bf72f";
-        String URL = "https://www.omdbapi.com/?apikey=" + APIKey + "&t=" + title + "%y=" + year;
+        String URL = "https://www.omdbapi.com/?apikey=" + APIKey + "&t=" + title + "&y=" + year;
 
         // Step 2. Create client object
         HttpClient client = HttpClient.newHttpClient();
