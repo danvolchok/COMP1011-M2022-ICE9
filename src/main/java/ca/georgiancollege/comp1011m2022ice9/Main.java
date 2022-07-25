@@ -16,10 +16,6 @@ public class  Main extends Application {
     @Override
     public void start(Stage stage) throws IOException
     {
-        var movieResults = APIManager.Instance().getMovieFromOMDBByTitleAndYear("Star Wars", "1977");
-
-        System.out.println(movieResults);
-
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("search-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Reading From OMDB API");
