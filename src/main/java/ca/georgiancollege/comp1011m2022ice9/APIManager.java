@@ -31,7 +31,71 @@ public class APIManager
     {
         // Step 1. Construct URL
         String APIKey = "769bf72f";
+        title = title.replace(" ", "%20");
         String URL = "https://www.omdbapi.com/?apikey=" + APIKey + "&t=" + title + "&y=" + year;
+
+        // Step 2. Create client object
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Step 3. Create request object
+        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(URL)).build();
+
+        try
+        {
+            // Step 4. Create response object
+            HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+            // Step 5. Create a Gson object
+            Gson gson = new Gson();
+
+            // Step 6. Deserialize the data using the fromJSON method
+            return gson.fromJson(response.body(), Movie.class);
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public MovieSearchResults getMovieFromOMDBBySearchTerm(String searchTerm)
+    {
+        // Step 1. Construct URL
+        String APIKey = "769bf72f";
+        searchTerm = searchTerm.replace(" ", "%20");
+        String URL = "https://www.omdbapi.com/?apikey=" + APIKey + "&s=" + searchTerm;
+
+        // Step 2. Create client object
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Step 3. Create request object
+        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(URL)).build();
+
+        try
+        {
+            // Step 4. Create response object
+            HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+            // Step 5. Create a Gson object
+            Gson gson = new Gson();
+
+            // Step 6. Deserialize the data using the fromJSON method
+            return gson.fromJson(response.body(), MovieSearchResults.class);
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public Movie getMovieFromOMDBByID(String imdbID)
+    {
+        // Step 1. Construct URL
+        String APIKey = "769bf72f";
+        String URL = "https://www.omdbapi.com/?apikey=" + APIKey + "&i=" + imdbID;
 
         // Step 2. Create client object
         HttpClient client = HttpClient.newHttpClient();
